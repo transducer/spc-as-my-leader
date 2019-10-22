@@ -47,17 +47,19 @@
       [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]])
 
 (defn evil-slide []
-  :li "EVIL mode"
-  [:ol
-   [:li "home row"]
-   [:li "modal editing"]
-   [:li "break up with mouse"]
-   [:li "remap Caps Lock to ESC"]
-   [:li "speed up key repeat, or not"]
-   [:li "there's always a faster way"]
-   [:li "can it do? yes - also for spacemacs"
-    [:p "Example: multiple cursors"]]
-   [:li "VERBS"]])
+  [:li "EVIL mode"
+   [:ol
+    [:li "home row"]
+    [:li "modal editing"]
+    [:li "VERBS CHANGE INSIDE \""]
+    [:li "select previous region"]
+    [:li "jump to other side"]
+    [:li "break up with mouse"]
+    [:li "remap Caps Lock to ESC"]
+    [:li "speed up key repeat, or not"]
+    [:li "there's always a faster way"]
+    [:li "can it do? yes - also for spacemacs"
+     [:p "Example: multiple cursors"]]]])
 
 (defn cider-slide []
   [:li "Cider"
@@ -65,7 +67,9 @@
     [:li "Documentation"]
     [:li "REPL"]
     [:li "source"]
+    [:li "doc"]
     [:li "debugging"]
+    [:li "enlighten mode"]
     [:li "macro expansion"]]])
 
 (defn structural-editing-slide []
@@ -79,7 +83,8 @@
   [:li "clj-refactor"
    [:ul
     [:li "Add dependency"]
-    [:li "threading macros"]
+    [:li "threading macros"
+     (str (reduce + (mapv inc [1 2 3])))]
     [:li "Introduce let, convolute, move to let"]]])
 
 (defn conclusion-slide []
