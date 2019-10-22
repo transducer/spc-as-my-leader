@@ -54,5 +54,7 @@
          [:ul
           [:li "vimtutor"]
           [:li "start using it at work"]]]]
-       [:button {:on-click #(.requestFullscreen (.getElementById js/document "main-panel"))}
-        "foo"]])))
+       [:button {:on-click #(.. js/document
+                                (getElementById "main-panel")
+                                requestFullscreen)}
+        "full screen"]])))
