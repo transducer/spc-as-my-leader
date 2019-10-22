@@ -1,0 +1,15 @@
+{
+  "name": "spc-as-my-leader",
+  "version": "1.0.0",
+  "private": false,
+  "repository": "www.github.com/transducer/spc-as-my-leader",
+  "license": "MIT",
+  "devDependencies": {
+    "shadow-cljs": "2.8.64"
+  },
+  "dependencies": {
+    "create-react-class": "15.6.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}
