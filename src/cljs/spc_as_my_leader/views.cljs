@@ -32,7 +32,15 @@
 (defn intro-slide []
   [:li "INTRO"
    [:p "My experience. Cannot do deep dive. Just glimpse."]
+   [:p "Why clojure? data, fp, lisp, but also this editor. cannot work if i cannot use spcmacs "]
    [:p "Why Vim?"]
+   [:p
+    [:pre "vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a
+muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know
+I^[[14~'ll get flamed for this but the truth has to be
+said. ^[[D^[[D^[[D^[[D ^[[D^[^[[D^[[D^[[B^
+exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D"]
+    [:i "— Jesper Lauridsen from alt.religion.emacs"]]
    [:p "ci .)"]
    [:p "SPC"]
    [:p "rrrrr"]
@@ -41,7 +49,8 @@
     [:li "Spacemacs"
      [:ul
       [:li "batteries included"]
-      [:li "layers - ,"]]]
+      [:li "layers - ,"]
+      [:li "logical bindings, self discoverable"]]]
     [:li "Clojure(Script)"
      [:ul
       [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]])
