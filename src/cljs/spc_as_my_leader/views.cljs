@@ -1,5 +1,6 @@
 (ns spc-as-my-leader.views
   (:require
+   [clojure.string :as string]
    [reagent.core :as r]))
 
 (defonce app-state
@@ -30,30 +31,35 @@
       requestFullscreen))
 
 (defn intro-slide []
-  [:li "INTRO"
-   [:p "My experience. Cannot do deep dive. Just glimpse."]
-   [:p "Why clojure? data, fp, lisp, but also this editor. cannot work if i cannot use spcmacs "]
-   [:p "Why Vim?"]
-   [:p
-    [:pre "vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a
-muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know
-I^[[14~'ll get flamed for this but the truth has to be
-said. ^[[D^[[D^[[D^[[D ^[[D^[^[[D^[[D^[[B^
-exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D"]
-    [:i "— Jesper Lauridsen from alt.religion.emacs"]]
-   [:p "ci .)"]
-   [:p "SPC"]
-   [:p "rrrrr"]
-   [:p "Evil as my leader"]
-   [:ul
-    [:li "Spacemacs"
-     [:ul
-      [:li "batteries included"]
-      [:li "layers - ,"]
-      [:li "logical bindings, self discoverable"]]]
-    [:li "Clojure(Script)"
-     [:ul
-      [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]])
+  [:div.card
+   [:div.card-header.card-header-title "INTRO"]
+   [:div.card-content
+    [:p "My experience. Cannot do deep dive. Just glimpse."]
+    [:p "Why clojure? data, fp, lisp, but also this editor. cannot work if i cannot use spcmacs "]
+    [:p "Why Vim?"]
+    [:p
+     [:pre
+      (string/join
+       "\n"
+       ["vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a "
+        "muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know "
+        "I^[[14~'ll get flamed for this but the truth has to be "
+        "said. ^[[D^[[D^[[D^[[D ^[[D^[^[[D^[[D^[[B^ "
+        "exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D"])]
+     [:i "— Jesper Lauridsen from alt.religion.emacs"]]
+    [:p "ci .)"]
+    [:p "SPC"]
+    [:p "rrrrr"]
+    [:p "Evil as my leader"]
+    [:div.content
+     [:li "Spacemacs"
+      [:ul
+       [:li "batteries included"]
+       [:li "layers - ,"]
+       [:li "logical bindings, self discoverable"]]]
+     [:li "Clojure(Script)"
+      [:ul
+       [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]]])
 
 (defn evil-slide []
   [:li "EVIL mode"
@@ -110,13 +116,20 @@ exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D"]
    [clj-refactor-slide]
    [conclusion-slide]])
 
+;; v = f(s), view v is function f of application state s
+(defn view [state]
+  [:div#main-panel
+   [:section.section
+    [:ol "zaken" (:page state)
+     (get slide-deck (:page state))]]
+   [:footer.footer
+    [:nav.pagination.is-large
+     [:button.button.pagination-previous
+      {:on-click previous-page!} "previous"]
+     [:button.button.pagination-next
+      {:on-click next-page!} "next"]]
+    [:button.button {:on-click request-full-screen}
+     "full screen"]]])
+
 (defn main-panel []
-  (fn []
-    (let [page (:page @app-state)]
-      [:div#main-panel
-       [:ol "zaken" page
-        (get slide-deck page)]
-       [:button {:on-click previous-page!} "previous"]
-       [:button {:on-click next-page!} "next"]
-       [:button {:on-click request-full-screen}
-        "full screen"]])))
+  [view @app-state])
