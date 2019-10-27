@@ -4,13 +4,13 @@
    [reagent.core :as r]))
 
 (defonce app-state
-  (r/atom {:page 0}))
+  (r/atom {:page-number 0}))
 
 (defn previous-page! []
-  (swap! app-state update :page dec))
+  (swap! app-state update :page-number dec))
 
 (defn next-page! []
-  (swap! app-state update :page inc))
+  (swap! app-state update :page-number inc))
 
 (defn handle-key-press! [key-code]
   (condp = key-code
@@ -66,14 +66,17 @@
      [:dl
       [:li "Home row"]
       [:li "Modal editing"]
+      [:li "Can it do? Yes."]
       [:li "The Vim language"
        [:pre.is-size-5
         (string/join "\n"
-                     ["ci)aESC # change inside paren to a"
-                      ".       # previous command again"
-                      "ds\"     # delete surrounding quotes"
-                      "d5w     # delete five words"
-                      "o       # open below / other side"
+                     ["ci)aaESC # change inside parens to aa"
+                      ".        # perform previous command again"
+                      "ds\"      # delete surrounding quotes"
+                      "d5w      # delete five words"
+                      "o        # open below / other side"
+                      "gv       # reselect last selection"
+                      "gi       # insert mode at last location"
                       "(...)"])]]]]]])
 
 (defn vim-slide-3 []
@@ -201,6 +204,11 @@
      (str (reduce + (mapv inc [1 2 3])))]
     [:li "Introduce let, convolute, move to let"]]])
 
+(defn extras-slide []
+  [:div
+   "undo tree"
+   "multiple-cursors"])
+
 (defn conclusion-slide []
   [:li "how to get started?"
    [:ul
@@ -221,13 +229,14 @@
    [cider-slide]
    [structural-editing-slide]
    [clj-refactor-slide]
+   [extras-slide]
    [conclusion-slide]])
 
 ;; v = f(s), view v is function f of application state s
 (defn view [state]
   [:div
    [:section#main-panel.section>div.card.is-size-2
-    (get slide-deck (:page state))]
+    (get slide-deck (:page-number state))]
    [:footer.footer
     [:nav.pagination
      [:button.button.pagination-previous
