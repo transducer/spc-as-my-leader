@@ -259,7 +259,7 @@
 
 (defn extras-slide []
   [:div.card-content
-   [:h1.title.is-1 "Miscellaneous"]
+   [:h1.title.is-1 "Miscelaneous"]
    [:div.columns.is-mobile
     [:div.column.is-offset-1
      [:dl
@@ -272,22 +272,28 @@
    [:div.columns.is-mobile
     [:div.column.is-offset-1
      [:dl
-      [:dl
-       [:li "Start using it at work"]
-       [:li
-        [:a {:href "https://youtu.be/jNa3axo40qM"
-             :target "_blank"}
-         "Emacs Rocks! Episode 13: multiple-cursors"]]
-       [:li
-        [:a {:href "https://youtu.be/D6h5dFyyUX0"
-             :target "_blank"}
-         "Emacs Rocks! Episode 14: Paredit"]]
-       [:li
-        [:a {:href "https://youtu.be/Uz_0i27wYbg"
-             :target "_blank"}
-         "Emacs as my leader: evil-mode"]]
-       [:li
-        [:pre "vimtutor"]]]]]]])
+      [:li "Start using it at work"]]]]])
+
+(defn links-slide []
+  [:div.card-content
+   [:h1.title.is-1 "Links"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:li
+       [:a {:href "https://youtu.be/jNa3axo40qM"
+            :target "_blank"}
+        "Emacs Rocks! Episode 13: multiple-cursors"]]
+      [:li
+       [:a {:href "https://youtu.be/D6h5dFyyUX0"
+            :target "_blank"}
+        "Emacs Rocks! Episode 14: Paredit"]]
+      [:li
+       [:a {:href "https://youtu.be/Uz_0i27wYbg"
+            :target "_blank"}
+        "Emacs as my leader: evil-mode"]]
+      [:li
+       [:pre "vimtutor"]]]]]])
 
 (def slide-deck
   [[title-slide]
@@ -306,7 +312,8 @@
    [structural-editing-slide-3]
    [clj-refactor-slide]
    [extras-slide]
-   [conclusion-slide]])
+   [conclusion-slide]
+   [links-slide]])
 
 ;; v = f(s), view v is function f of application state s
 (defn view [state]
