@@ -207,42 +207,87 @@
         :target "_blank"}
        "CIDER // Docs [GPL]"]]]]])
 
-#_(defn cider-slide []
-    [:li "Cider"
-     [:ol
-      [:li "Documentation"]
-      [:li "REPL"]
-      [:li "source"]
-      [:li "doc"]
-      [:li "debugging"]
-      [:li "enlighten mode"]
-      [:li "macro expansion"]]])
+(defn structural-editing-slide-1 []
+  [:div.card-content
+   [:h1.title.is-1 "Structural editing"]
+   [:div.columns.is-centered.is-mobile
+    [:div.column
+     [:a {:href
+          "https://twitter.com/kentbeck/status/311983951218630656?lang=en"
+          :target "_blank"}
+      [:figure.image.is>img
+       {:src "/img/kent-beck-tweet.png"}]]]]])
 
-(defn structural-editing-slide []
-  [:li "Structural editing"
-   [:ul
-    [:li "slurp/barf emoticons"]
-    [:li "transpose"]
-    [:li "convolute"]]])
+(defn structural-editing-slide-2 []
+  [:div.card-content
+   [:h1.title.is-1 "Structural editing"]
+   [:div.columns.is-mobile>div.column.content
+    [:blockquote.blockquote.is-success.is-size-6
+     "If paredit is not for you, then you need to become "
+     "the sort of person that paredit is for."
+     [:br]
+     [:br]
+     "Phil Hagelberg"]]])
+
+(defn structural-editing-slide-3 []
+  [:div.card-content
+   [:h1.title.is-1 "Structural editing"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:li "😋"]
+      [:li "🤮"]
+      [:li "🙌"]
+      [:li "💞"]
+      [:li "💕"]]]]])
 
 (defn clj-refactor-slide []
-  [:li "clj-refactor"
-   [:ul
-    [:li "Add dependency"]
-    [:li "threading macros"
-     (str (reduce + (mapv inc [1 2 3])))]
-    [:li "Introduce let, convolute, move to let"]]])
+  [:div.card-content
+   [:h1.title.is-1 "clj-refactor"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:li "Add dependency"]
+      [:li "Threading macros"]
+      #_(reduce + (filter even? (map inc (range 10))))
+      [:li "Introduce let, move to let"]
+      [:li
+       [:a
+        {:href "https://github.com/clojure-emacs/clj-refactor.el/wiki"
+         :target "_blank"}
+        "(...)"]]]]]])
 
 (defn extras-slide []
-  [:div
-   "undo tree"
-   "multiple-cursors"])
+  [:div.card-content
+   [:h1.title.is-1 "Miscelaneous"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:li "Undo tree"]
+      [:li "Multiple cursors"]]]]])
 
 (defn conclusion-slide []
-  [:li "how to get started?"
-   [:ul
-    [:li "vimtutor"]
-    [:li "start using it at work"]]])
+  [:div.card-content
+   [:h1.title.is-1 "Conclusion"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:dl
+       [:li "Start using it at work"]
+       [:li
+        [:a {:href "https://youtu.be/jNa3axo40qM"
+             :target "_blank"}
+         "Emacs Rocks! Episode 13: multiple-cursors"]]
+       [:li
+        [:a {:href "https://youtu.be/D6h5dFyyUX0"
+             :target "_blank"}
+         "Emacs Rocks! Episode 14: Paredit"]]
+       [:li
+        [:a {:href "https://youtu.be/Uz_0i27wYbg"
+             :target "_blank"}
+         "Emacs as my leader: evil-mode"]]
+       [:li
+        [:pre "vimtutor"]]]]]]])
 
 (def slide-deck
   [[title-slide]
@@ -256,7 +301,9 @@
    [spacemacs-slide]
    [cider-slide]
    [cider-debugger]
-   [structural-editing-slide]
+   [structural-editing-slide-1]
+   [structural-editing-slide-2]
+   [structural-editing-slide-3]
    [clj-refactor-slide]
    [extras-slide]
    [conclusion-slide]])
