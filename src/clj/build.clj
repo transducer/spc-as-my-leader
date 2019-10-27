@@ -12,7 +12,7 @@
 
 
 
-(defmacro unless [pred & clauses]
-  `(if (not ~pred) ~@clauses))
+(defmacro unless [pred & body]
+  (list 'if (list 'not pred) (cons 'do body)))
 
-(unless (= 2 1) (println "evaluated"))
+(unless (= 1 1) (println "Evaluated"))
