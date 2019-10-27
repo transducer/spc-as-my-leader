@@ -22,12 +22,3 @@ Wait a bit, then browse to [http://localhost:8280](http://localhost:8280).
 ### Start Cider from Emacs:
 
 Refer to the [shadow-cljs Emacs / CIDER documentation](https://shadow-cljs.github.io/docs/UsersGuide.html#cider).
-
-## Production Build
-
-Run
-
-    lein clean
-    shadow-cljs release prod
-
-Compiled frontend will be available in `resources/public`.

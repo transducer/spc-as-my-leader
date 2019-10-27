@@ -15,5 +15,4 @@
             "prod" ["with-profile" "prod" "run" "-m" "shadow.cljs.devtools.cli" "release" "app"]}
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "0.9.10"]]}
-   :prod {}})
+   {:dependencies [[binaryage/devtools "0.9.10"]]}})
