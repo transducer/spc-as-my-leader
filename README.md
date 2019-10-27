@@ -4,7 +4,7 @@ _Talk for Amsterdam Emacs User Group 30 October 2019_
 ## Installation
 
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    apt-get install -y nodejs
+    sudo apt-get install -y openjdk-8-jdk leiningen nodejs
     npm install -g shadow-cljs
 
 ## Development Mode
