@@ -40,7 +40,9 @@
      {:src "/img/clj-logo.svg"}]
     [:div.column.is-4>figure.image>img
      {:src "/img/spacemacs-logo.svg"}]]
-   [:div.columns>div.column>i.is-size-5 "Erwin Rooijakkers"]])
+   [:div.columns.is-mobile
+    [:div.column.is-4>i.is-size-5
+     "Erwin Rooijakkers"]]])
 
 (defn background-slide-1 []
   [:div.card-content.content
@@ -69,22 +71,25 @@
       [:li "Can it do? Yes."]
       [:li "The Vim language"
        [:pre.is-size-5
-        (string/join "\n"
-                     ["ci)aaESC # change inside parens to aa"
-                      ".        # perform previous command again"
-                      "ds\"      # delete surrounding quotes"
-                      "d5w      # delete five words"
-                      "o        # open below / other side"
-                      "gv       # reselect last selection"
-                      "gi       # insert mode at last location"
-                      "(...)"])]]]]]])
+        (->> ["ci)aaESC # change inside parens to aa"
+              ".        # perform previous command again"
+              "ds\"      # delete surrounding quotes"
+              "d5w      # delete five words"
+              "o        # open below / other side"
+              "gv       # reselect last selection"
+              "gi       # insert mode at last location"
+              "(...)"]
+             (string/join "\n"))]]]]]])
 
 (defn vim-slide-3 []
   [:div.card-content
    [:h1.title.is-1 "Vim"]
    [:div.columns.is-mobile>div.column.content
     [:blockquote.blockquote.is-success.is-size-6
-     (->> ["But as time went on, you struggled less and "
+     (->> ["At first you were frustrated a lot, and far less "
+           "productive. Your browser history was essentially "
+           "a full index to the online Vim documentation (...)."
+           "But as time went on, you struggled less and "
            "less. You aren’t sure when it happened, but Vim "
            "stopped being a hindrance. Instead, it become "
            "something greater than you had anticipated. It "
@@ -148,46 +153,70 @@
       [:li ".spacemacs"]
       [:li "Discoverable"]]]]])
 
-(defn intro-slide []
-  [:div.card-content
-   [:h1.title "INTRO"]
-   [:p "My experience. Cannot do deep dive. Just glimpse."]
-   [:p "Why clojure? data, fp, lisp, but also this editor. cannot work if i cannot use spcmacs "]
-   [:p "Why Vim?"]
-   [:p.content
-    [:blockquote.blockquote.is-success
-     (interpose
-      [:br]
-      ["vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a "
-       "muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know "
-       "I^[[14~'ll get flamed for this but the truth has to be "
-       "said. ^[[D^[[D^[[D^[[D ^[[D^[^[[D^[[D^[[B^ "
-       "exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D"])]
-    [:i "— Jesper Lauridsen from alt.religion.emacs"]]
-   [:p "ci .)"]
-   [:p "SPC"]
-   [:p "rrrrr"]
-   [:p "Evil as my leader"]
-   [:div.content
-    [:li "Spacemacs"
-     [:ul
-      [:li "batteries included"]
-      [:li "layers - ,"]
-      [:li "logical bindings, self discoverable"]]]
-    [:li "Clojure(Script)"
-     [:ul
-      [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]])
+(defn strong-first-letters
+  "Makes upper case letters from A to R strong"
+  [s]
+  (for [[c & chars] (string/split s #"(?=[A-R])")]
+    ^{:key c}
+    [:<> [:strong c] chars]))
 
 (defn cider-slide []
-  [:li "Cider"
-   [:ol
-    [:li "Documentation"]
-    [:li "REPL"]
-    [:li "source"]
-    [:li "doc"]
-    [:li "debugging"]
-    [:li "enlighten mode"]
-    [:li "macro expansion"]]])
+  [:div.card-content
+   [:h1.title.is-1 "CIDER"]
+   [:div.columns.is-mobile
+    [:div.column.is-6
+     [:figure.image.is>img
+      {:src "/img/cider-architecture.png"}]
+     [:div.is-size-6 "Source: "
+      [:a
+       {:href "https://docs.cider.mx/cider/index.html"
+        :target "_blank"}
+       "CIDER // Docs [GPL]"]]]
+    [:div.column.is-5.is-offset-1
+     [:dl.is-size-4
+      [:li
+       "What does CIDER stand for?"
+       [:br]
+       [:span.is-size-5
+        "CIDER stands for "
+        (strong-first-letters
+         "Clojure(Script) Interactive Development Environment
+         that Rocks")]]
+      [:br]
+      [:li
+       "Does it really rock?"
+       [:br]
+       [:span.is-size-5 "Yes."]]]
+     [:div.is-size-6 "Source: "
+      [:a
+       {:href "https://docs.cider.mx/cider/faq.html"
+        :target "_blank"}
+       "CIDER // FAQ [GPL]"]]]]])
+
+(defn cider-debugger []
+  [:div.card-content
+   [:h1.title.is-1 "CIDER debugger"]
+   [:div.columns.is-centered.is-mobile
+    [:div.column
+     [:figure.image.is>img
+      {:src "/img/cider-debugger.gif"}]
+     [:div.is-size-6 {:style {:margin-top "auto"}} "Source: "
+      [:a
+       {:href
+        "https://docs.cider.mx/cider/debugging/debugger.html"
+        :target "_blank"}
+       "CIDER // Docs [GPL]"]]]]])
+
+#_(defn cider-slide []
+    [:li "Cider"
+     [:ol
+      [:li "Documentation"]
+      [:li "REPL"]
+      [:li "source"]
+      [:li "doc"]
+      [:li "debugging"]
+      [:li "enlighten mode"]
+      [:li "macro expansion"]]])
 
 (defn structural-editing-slide []
   [:li "Structural editing"
@@ -225,8 +254,8 @@
    [clojure-slide-1]
    [clojure-slide-2]
    [spacemacs-slide]
-   [intro-slide]
    [cider-slide]
+   [cider-debugger]
    [structural-editing-slide]
    [clj-refactor-slide]
    [extras-slide]
