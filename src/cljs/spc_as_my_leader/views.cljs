@@ -193,7 +193,7 @@
         :target "_blank"}
        "CIDER // FAQ [GPL]"]]]]])
 
-(defn cider-debugger []
+(defn cider-debugger-slide []
   [:div.card-content
    [:h1.title.is-1 "CIDER debugger"]
    [:div.columns.is-centered.is-mobile
@@ -306,7 +306,7 @@
    [clojure-slide-2]
    [spacemacs-slide]
    [cider-slide]
-   [cider-debugger]
+   [cider-debugger-slide]
    [structural-editing-slide-1]
    [structural-editing-slide-2]
    [structural-editing-slide-3]
