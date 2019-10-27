@@ -1,7 +1,5 @@
 # SPC as my leader - Programming Clojure with Spacemacs
-_Amsterdam Emacs User Group 30 October 2019_
-
-A [re-frame](https://github.com/Day8/re-frame) application designed to show working with Clojure in Spacemacs.
+_Talk for Amsterdam Emacs User Group 30 October 2019_
 
 ## Installation
 
