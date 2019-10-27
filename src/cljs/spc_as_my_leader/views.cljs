@@ -259,7 +259,7 @@
 
 (defn extras-slide []
   [:div.card-content
-   [:h1.title.is-1 "Miscelaneous"]
+   [:h1.title.is-1 "Miscellaneous"]
    [:div.columns.is-mobile
     [:div.column.is-offset-1
      [:dl
