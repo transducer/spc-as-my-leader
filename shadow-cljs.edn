@@ -1,7 +1,6 @@
 {:lein   true
  :nrepl {:port 8777}
  :builds {:app {:target :browser
-                :build-hooks [(build/foo)]
                 :output-dir "resources/public/js/compiled"
                 :asset-path "/js/compiled"
                 :modules {:app
