@@ -36,11 +36,114 @@
     [:h1.title.is-1 "SPC as my leader"]
     [:h2.subtitle.is-3 "programming Clojure with Spacemacs"]]
    [:div.columns.is-mobile
-    [:div.column.is-4.is-offset-2>figure.image.is-256x256>img
+    [:div.column.is-4.is-offset-2>figure.image>img
      {:src "/img/clj-logo.svg"}]
-    [:div.column.is-4>figure.image.is-256x256>img
+    [:div.column.is-4>figure.image>img
      {:src "/img/spacemacs-logo.svg"}]]
    [:div.columns>div.column>i.is-size-5 "Erwin Rooijakkers"]])
+
+(defn background-slide-1 []
+  [:div.card-content.content
+   [:h1.title.is-1 "2015"]
+   [:div.columns.is-centered.is-mobile
+    [:div.column.is-11.is-offset-1
+     [:a {:href "https://youtu.be/_NUO4JEtkDw" :target "_blank"}
+      [:figure.image>img
+       {:src "/img/learning-vim-in-a-week.png"}]]]]])
+
+(defn vim-slide-1 []
+  [:div.card-content
+   [:h1.title.is-1 "Vim"]
+   [:div.columns.is-mobile.is-centered
+    [:div.column.is-6>figure.image.is>img
+     {:src "/img/vim-logo.svg"}]]])
+
+(defn vim-slide-2 []
+  [:div.card-content
+   [:h1.title.is-1 "Vim"]
+   [:div.columns.is-mobile
+    [:div.column.is-offset-1
+     [:dl
+      [:li "Home row"]
+      [:li "Modal editing"]
+      [:li "The Vim language"
+       [:pre.is-size-5
+        (string/join "\n"
+                     ["ci)aESC # change inside paren to a"
+                      ".       # previous command again"
+                      "ds\"     # delete surrounding quotes"
+                      "d5w     # delete five words"
+                      "o       # open below / other side"
+                      "(...)"])]]]]]])
+
+(defn vim-slide-3 []
+  [:div.card-content
+   [:h1.title.is-1 "Vim"]
+   [:div.columns.is-mobile>div.column.content
+    [:blockquote.blockquote.is-success.is-size-6
+     (->> ["But as time went on, you struggled less and "
+           "less. You aren’t sure when it happened, but Vim "
+           "stopped being a hindrance. Instead, it become "
+           "something greater than you had anticipated. It "
+           "wasn’t a mere text editor with keyboard "
+           "shortcuts anymore—it had become an extension "
+           "of your body. Nay, an extension of your very "
+           "essence as a programmer."]
+          (interpose [:br]))
+     [:br]
+     [:br]
+     [:a {:href "https://www.norfolkwinters.com/vim-creep/"}
+      "Norfolk Winters - Vim Creep"]]]])
+
+(defn background-slide-2 []
+  [:div.card-content.content
+   [:h1.title.is-1 "2016"]
+   [:div.columns.is-centered.is-mobile
+    [:div.column.is-11.is-offset-1
+     [:a {:href "https://youtu.be/0m6hoOelZH8" :target "_blank"}
+      [:figure.image>img
+       {:src "/img/sicp.png"}]]]]])
+
+(defn clojure-slide-1 []
+  [:div.card-content
+   [:h1.title.is-1 "Clojure"]
+   [:div.columns.is-mobile
+    [:div.column.is-6>figure.image>img
+     {:src "/img/clj-logo.svg"}]
+    [:div.column.is-5.is-offset-1
+     [:dl
+      [:li "Lisp"]
+      [:li "On JVM and in browser"]
+      [:li "Immutable data structures"]
+      [:li "Data first"]]]]])
+
+(defn clojure-slide-2 []
+  [:div.card-content.content
+   [:h1.title.is-1 "Emacs..."]
+   [:div.columns.is-centered.is-mobile
+    [:div.column.is-6
+     [:a
+      {:href
+       "https://twitter.com/amperity/status/1068978794910777344"
+       :target "_blank"}
+      [:figure.image>img
+       {:src "/img/commercial.png"}]]]]])
+
+(defn spacemacs-slide []
+  [:div.card-content
+   [:h1.title.is-1 "Spacemacs"]
+   [:div.columns.is-mobile
+    [:div.column.is-5
+     [:a {:href "https://github.com/syl20bnr/spacemacs"
+          :target "_blank"}
+      [:figure.image.is>img
+       {:src "/img/spacemacs.png"}]]]
+    [:div.column.is-6.is-offset-1
+     [:dl
+      [:li "Evil-mode"]
+      [:li "Community configured"]
+      [:li ".spacemacs"]
+      [:li "Discoverable"]]]]])
 
 (defn intro-slide []
   [:div.card-content
@@ -48,10 +151,10 @@
    [:p "My experience. Cannot do deep dive. Just glimpse."]
    [:p "Why clojure? data, fp, lisp, but also this editor. cannot work if i cannot use spcmacs "]
    [:p "Why Vim?"]
-   [:p
-    [:pre
-     (string/join
-      "\n"
+   [:p.content
+    [:blockquote.blockquote.is-success
+     (interpose
+      [:br]
       ["vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a "
        "muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know "
        "I^[[14~'ll get flamed for this but the truth has to be "
@@ -71,21 +174,6 @@
     [:li "Clojure(Script)"
      [:ul
       [:li "Lisp on the JVM and JavaScript runtime, immutable data structures"]]]]])
-
-(defn evil-slide []
-  [:li "EVIL mode"
-   [:ol
-    [:li "home row"]
-    [:li "modal editing"]
-    [:li "VERBS CHANGE INSIDE \""]
-    [:li "select previous region"]
-    [:li "jump to other side"]
-    [:li "break up with mouse"]
-    [:li "remap Caps Lock to ESC"]
-    [:li "speed up key repeat, or not"]
-    [:li "there's always a faster way"]
-    [:li "can it do? yes - also for spacemacs"
-     [:p "Example: multiple cursors"]]]])
 
 (defn cider-slide []
   [:li "Cider"
@@ -121,17 +209,24 @@
 
 (def slide-deck
   [[title-slide]
+   [background-slide-1]
+   [vim-slide-1]
+   [vim-slide-2]
+   [vim-slide-3]
+   [background-slide-2]
+   [clojure-slide-1]
+   [clojure-slide-2]
+   [spacemacs-slide]
    [intro-slide]
    [cider-slide]
-   [evil-slide]
    [structural-editing-slide]
    [clj-refactor-slide]
    [conclusion-slide]])
 
 ;; v = f(s), view v is function f of application state s
 (defn view [state]
-  [:section
-   [:section#main-panel.section>div.card
+  [:div
+   [:section#main-panel.section>div.card.is-size-2
     (get slide-deck (:page state))]
    [:footer.footer
     [:nav.pagination
