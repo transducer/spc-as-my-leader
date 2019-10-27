@@ -14,5 +14,5 @@
 
 (defn ^:export init []
   (dev-setup)
-  (views/load-keydown-listener!)
+  (views/load-keydown-listener)
   (mount-root))

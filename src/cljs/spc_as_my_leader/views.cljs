@@ -21,7 +21,7 @@
 (defn key-press-listener [e]
   (handle-key-press! (.-keyCode e)))
 
-(defn load-keydown-listener! []
+(defn load-keydown-listener []
   (.. js/document
       (addEventListener "keydown" key-press-listener)))
 
