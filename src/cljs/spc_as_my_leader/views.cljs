@@ -198,15 +198,9 @@
   [:div.card-content
    [:h1.title.is-1 "CIDER debugger"]
    [:div.columns.is-centered.is-mobile
-    [:div.column
+    [:div.column.is-4.is-offset-1
      [:figure.image.is>img
-      {:src "/img/cider-debugger.gif"}]
-     [:div.is-size-6 {:style {:margin-top "auto"}} "Source: "
-      [:a
-       {:href
-        "https://docs.cider.mx/cider/debugging/debugger.html"
-        :target "_blank"}
-       "CIDER // Docs [GPL]"]]]]])
+      {:src "/img/debugging.jpg"}]]]])
 
 (defn structural-editing-slide-1 []
   [:div.card-content
