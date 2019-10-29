@@ -116,14 +116,21 @@
   [:div.card-content
    [:h1.title.is-1 "Clojure"]
    [:div.columns.is-mobile
-    [:div.column.is-6>figure.image>img
-     {:src "/img/clj-logo.svg"}]
+    [:div.column.is-6
+     [:figure.image>img
+      {:src "/img/brave-quote.png"}]
+     [:div.column.is-size-6 "Source: "
+      [:a
+       {:href "https://www.braveclojure.com/getting-started/"
+        :target "_blank"}
+       "Daniel Higginbotham - Clojure for the Brave and True"]]]
     [:div.column.is-5.is-offset-1
      [:dl
       [:li "Lisp"]
       [:li "On JVM and in browser"]
       [:li "Immutable data structures"]
-      [:li "Data first"]]]]])
+      [:li "Data first"]]
+     [:figure.image.is-128x128>img {:src "/img/clj-logo.svg"}]]]])
 
 (defn clojure-slide-2 []
   [:div.card-content.content
@@ -294,6 +301,11 @@
        [:a {:href "https://youtu.be/Uz_0i27wYbg"
             :target "_blank"}
         "Emacs as my leader: evil-mode"]]
+      [:li
+       [:a {:href
+            "https://github.com/transducer/spc-as-my-leader"
+            :target "_blank"}
+        "github.com/transducer/spc-as-my-leader"]]
       [:li
        [:pre "vimtutor"]]]]]])
 
