@@ -311,14 +311,18 @@
 ;; v = f(s), view v is function f of application state s
 (defn view [state]
   [:div
-   [:section#main-panel.section>div.card.is-size-2
-    (get slide-deck (:page-number state))]
+   [:section#main-panel.section
+    [:div.card.is-size-2
+     (get slide-deck (:page-number state))]]
    [:footer.footer>nav.navigation
     [:button.button.pagination-previous
-     {:on-click previous-page!} "previous"]
+     {:on-click previous-page!}
+     "previous"]
     [:button.button.pagination-next
-     {:on-click next-page!} "next"]
-    [:button.button {:on-click request-full-screen}
+     {:on-click next-page!}
+     "next"]
+    [:button.button
+     {:on-click request-full-screen}
      "full screen"]]])
 
 (defn main-panel []
