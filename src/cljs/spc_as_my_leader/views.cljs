@@ -118,19 +118,13 @@
    [:div.columns.is-mobile
     [:div.column.is-6
      [:figure.image>img
-      {:src "/img/brave-quote.png"}]
-     [:div.column.is-size-6 "Source: "
-      [:a
-       {:href "https://www.braveclojure.com/getting-started/"
-        :target "_blank"}
-       "Daniel Higginbotham - Clojure for the Brave and True"]]]
+      {:src "/img/clj-logo.svg"}]]
     [:div.column.is-5.is-offset-1
      [:dl
       [:li "Lisp"]
       [:li "On JVM and in browser"]
       [:li "Immutable data structures"]
-      [:li "Data first"]]
-     [:figure.image.is-128x128>img {:src "/img/clj-logo.svg"}]]]])
+      [:li "Data first"]]]]])
 
 (defn clojure-slide-2 []
   [:div.card-content.content
@@ -257,6 +251,7 @@
     [:div.column.is-offset-1
      [:dl
       [:li "Add dependency"]
+      [:li "Rename symbol"]
       [:li "Threading macros"]
       #_(reduce + (filter even? (map inc (range 10))))
       [:li "Introduce let, move to let"]
@@ -305,7 +300,7 @@
        [:a {:href
             "https://github.com/transducer/spc-as-my-leader"
             :target "_blank"}
-        "github.com/transducer/spc-as-my-leader"]]
+        "transducer/spc-as-my-leader"]]
       [:li
        [:pre "vimtutor"]]]]]])
 
