@@ -91,8 +91,8 @@
    [:div.columns.is-mobile
     [:div.column.is-offset-1
      [:dl
-      [:li "Home row"]
       [:li "Modal editing"]
+      [:li "Home row"]
       [:li "Can it do? Yes."]
       [:li "The Vim language"
        [:pre.is-size-5
