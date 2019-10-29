@@ -308,7 +308,8 @@
    [conclusion-slide]
    [links-slide]])
 
-;; v = f(s), view v is function f of application state s
+;; v = f(s)
+;; view v is a function f of app state s
 (defn view [state]
   [:div
    [:section#main-panel.section
