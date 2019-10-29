@@ -30,6 +30,9 @@
       (getElementById "main-panel")
       requestFullscreen))
 
+(defn link [href form]
+  [:a {:href href :target "_blank"} form])
+
 (defn title-slide []
   [:div.card-content
    [:div.columns>div.column>div.hero.is-primary>div.hero-body>div.container
@@ -49,18 +52,40 @@
    [:h1.title.is-1 "2015"]
    [:div.columns.is-centered.is-mobile
     [:div.column.is-11.is-offset-1
-     [:a {:href "https://youtu.be/_NUO4JEtkDw" :target "_blank"}
+     [link "https://youtu.be/_NUO4JEtkDw"
       [:figure.image>img
        {:src "/img/learning-vim-in-a-week.png"}]]]]])
 
 (defn vim-slide-1 []
   [:div.card-content
-   [:h1.title.is-1 "Vim"]
+   [:h1.title.is-1 "2015"]
    [:div.columns.is-mobile.is-centered
     [:div.column.is-6>figure.image.is>img
      {:src "/img/vim-logo.svg"}]]])
 
 (defn vim-slide-2 []
+  [:div.card-content
+   [:h1.title.is-1 "Vim"]
+   [:div.columns.is-mobile>div.column.content
+    [:blockquote.blockquote.is-success.is-size-6
+     (->> ["At first you were frustrated a lot, and far less "
+           "productive. Your browser history was essentially "
+           "a full index to the online Vim documentation (...)."
+           "But as time went on, you struggled less and "
+           "less. You aren’t sure when it happened, but Vim "
+           "stopped being a hindrance. Instead, it become "
+           "something greater than you had anticipated. It "
+           "wasn’t a mere text editor with keyboard "
+           "shortcuts anymore—it had become an extension "
+           "of your body. Nay, an extension of your very "
+           "essence as a programmer."]
+          (interpose [:br]))
+     [:br]
+     [:br]
+     [link "https://www.norfolkwinters.com/vim-creep/"
+      "Norfolk Winters - Vim Creep"]]]])
+
+(defn vim-slide-3 []
   [:div.card-content
    [:h1.title.is-1 "Vim"]
    [:div.columns.is-mobile
@@ -81,34 +106,12 @@
               "(...)"]
              (string/join "\n"))]]]]]])
 
-(defn vim-slide-3 []
-  [:div.card-content
-   [:h1.title.is-1 "Vim"]
-   [:div.columns.is-mobile>div.column.content
-    [:blockquote.blockquote.is-success.is-size-6
-     (->> ["At first you were frustrated a lot, and far less "
-           "productive. Your browser history was essentially "
-           "a full index to the online Vim documentation (...)."
-           "But as time went on, you struggled less and "
-           "less. You aren’t sure when it happened, but Vim "
-           "stopped being a hindrance. Instead, it become "
-           "something greater than you had anticipated. It "
-           "wasn’t a mere text editor with keyboard "
-           "shortcuts anymore—it had become an extension "
-           "of your body. Nay, an extension of your very "
-           "essence as a programmer."]
-          (interpose [:br]))
-     [:br]
-     [:br]
-     [:a {:href "https://www.norfolkwinters.com/vim-creep/"}
-      "Norfolk Winters - Vim Creep"]]]])
-
 (defn background-slide-2 []
   [:div.card-content.content
    [:h1.title.is-1 "2016"]
    [:div.columns.is-centered.is-mobile
     [:div.column.is-11.is-offset-1
-     [:a {:href "https://youtu.be/0m6hoOelZH8" :target "_blank"}
+     [link "https://youtu.be/0m6hoOelZH8"
       [:figure.image>img
        {:src "/img/sicp.png"}]]]]])
 
@@ -131,10 +134,8 @@
    [:h1.title.is-1 "Emacs..."]
    [:div.columns.is-centered.is-mobile
     [:div.column.is-6
-     [:a
-      {:href
-       "https://twitter.com/amperity/status/1068978794910777344"
-       :target "_blank"}
+     [link
+      "https://twitter.com/amperity/status/1068978794910777344"
       [:figure.image>img
        {:src "/img/commercial.png"}]]]]])
 
@@ -143,8 +144,7 @@
    [:h1.title.is-1 "Spacemacs"]
    [:div.columns.is-mobile
     [:div.column.is-5
-     [:a {:href "https://github.com/syl20bnr/spacemacs"
-          :target "_blank"}
+     [link "https://github.com/syl20bnr/spacemacs"
       [:figure.image.is>img
        {:src "/img/spacemacs.png"}]]]
     [:div.column.is-6.is-offset-1
@@ -169,9 +169,8 @@
      [:figure.image.is>img
       {:src "/img/cider-architecture.png"}]
      [:div.is-size-6 "Source: "
-      [:a
-       {:href "https://docs.cider.mx/cider/index.html"
-        :target "_blank"}
+      [link
+       "https://docs.cider.mx/cider/index.html"
        "CIDER // Docs [GPL]"]]]
     [:div.column.is-5.is-offset-1
      [:dl.is-size-4
@@ -189,9 +188,8 @@
        [:br]
        [:span.is-size-5 "Yes."]]]
      [:div.is-size-6 "Source: "
-      [:a
-       {:href "https://docs.cider.mx/cider/faq.html"
-        :target "_blank"}
+      [link
+       "https://docs.cider.mx/cider/faq.html"
        "CIDER // FAQ [GPL]"]]]]])
 
 (defn cider-debugger-slide []
@@ -207,9 +205,7 @@
    [:h1.title.is-1 "Structural editing"]
    [:div.columns.is-centered.is-mobile
     [:div.column
-     [:a {:href
-          "https://twitter.com/kentbeck/status/311983951218630656?lang=en"
-          :target "_blank"}
+     [link "https://twitter.com/kentbeck/status/311983951218630656?lang=en"
       [:figure.image.is>img
        {:src "/img/kent-beck-tweet.png"}]]]]])
 
@@ -250,9 +246,8 @@
       #_(reduce + (filter even? (map inc (range 10))))
       [:li "Introduce let, move to let"]
       [:li
-       [:a
-        {:href "https://github.com/clojure-emacs/clj-refactor.el/wiki"
-         :target "_blank"}
+       [link
+        "https://github.com/clojure-emacs/clj-refactor.el/wiki"
         "(...)"]]]]]])
 
 (defn extras-slide []
@@ -279,29 +274,24 @@
     [:div.column.is-offset-1
      [:dl
       [:li
-       [:a {:href "https://youtu.be/jNa3axo40qM"
-            :target "_blank"}
+       [link "https://youtu.be/jNa3axo40qM"
         "Emacs Rocks! Episode 13: multiple-cursors"]]
       [:li
-       [:a {:href "https://youtu.be/D6h5dFyyUX0"
-            :target "_blank"}
+       [link "https://youtu.be/D6h5dFyyUX0"
         "Emacs Rocks! Episode 14: Paredit"]]
       [:li
-       [:a {:href "https://youtu.be/Uz_0i27wYbg"
-            :target "_blank"}
+       [link "https://youtu.be/Uz_0i27wYbg"
         "Emacs as my leader: evil-mode"]]
       [:li
-       [:a {:href
-            "https://github.com/transducer/spc-as-my-leader"
-            :target "_blank"}
+       [link "https://github.com/transducer/spc-as-my-leader"
         "transducer/spc-as-my-leader"]]
       [:li
        [:pre "vimtutor"]]]]]])
 
 (def slide-deck
   [[title-slide]
-   [background-slide-1]
    [vim-slide-1]
+   [background-slide-1]
    [vim-slide-2]
    [vim-slide-3]
    [background-slide-2]
