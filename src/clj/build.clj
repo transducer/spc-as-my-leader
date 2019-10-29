@@ -3,7 +3,7 @@
 (defn map-2 [f coll]
   (when (seq coll)
     (cons (f (first coll))
-          (map* f (rest coll)))))
+          (map-2 f (rest coll)))))
 
 (map-2 inc [1 2 3])
 
