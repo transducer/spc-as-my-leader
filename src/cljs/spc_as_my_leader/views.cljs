@@ -13,7 +13,7 @@
   (swap! app-state update :page-number inc))
 
 (defn handle-key-press! [key-code]
-  (condp = key-code
+  (case key-code
     37 (previous-page!)
     39 (next-page!)
     :do-nothing))
