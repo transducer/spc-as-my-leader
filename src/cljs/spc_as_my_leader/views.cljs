@@ -317,8 +317,8 @@
    [structural-editing-slide-3]
    [clj-refactor-slide]
    [extras-slide]
-   [conclusion-slide]
-   [links-slide]])
+   [links-slide]
+   [conclusion-slide]])
 
 ;; v = f(s)
 ;; view v is a function f of app state s
