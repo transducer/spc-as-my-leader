@@ -31,6 +31,9 @@
       (getElementById "main-panel")
       requestFullscreen))
 
+(def fullheight-style
+  {:height "100%" :width "100%"})
+
 (defn link [href form]
   [:a {:href href :target "_blank"} form])
 
@@ -321,19 +324,21 @@
 ;; view v is a function f of app state s
 (defn view [state]
   [:div
-   [:section#main-panel.section
-    [:div.card.is-size-2
-     (get slide-deck (:page-number state))]]
-   [:footer.footer>nav.navigation
-    [:button.button.pagination-previous
-     {:on-click previous-page!}
-     "previous"]
-    [:button.button.pagination-next
-     {:on-click next-page!}
-     "next"]
-    [:button.button
-     {:on-click request-full-screen}
-     "full screen"]]])
+   [:section.hero.is-fullheight
+    [:div#main-panel.hero-body
+     [:div.card.is-size-2.fullheight
+      {:style fullheight-style}
+      (get slide-deck (:page-number state))]]
+    [:footer.hero-footer>nav.navigation
+     [:button.button.pagination-previous
+      {:on-click previous-page!}
+      "previous"]
+     [:button.button.pagination-next
+      {:on-click next-page!}
+      "next"]
+     [:button.button.pagination-next
+      {:on-click request-full-screen}
+      "full screen"]]]])
 
 (defn main-panel []
   [view @app-state])
