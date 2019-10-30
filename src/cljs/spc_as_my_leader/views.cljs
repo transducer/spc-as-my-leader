@@ -23,7 +23,8 @@
 
 (defn load-keydown-listener []
   (.. js/document
-      (addEventListener "keydown" key-press-listener)))
+      (addEventListener "keydown"
+                        key-press-listener)))
 
 (defn request-full-screen []
   (.. js/document
