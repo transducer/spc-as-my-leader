@@ -265,8 +265,16 @@
    [:h1.title.is-1 "Conclusion"]
    [:div.columns.is-mobile
     [:div.column.is-offset-1
-     [:dl
-      [:li "Start using it at work"]]]]])
+     [:li
+      [:figure.image.is-96x96>img
+       {:src "/img/clj-logo.svg"}]
+      "+ "
+      [:figure.image.is-96x96>img
+       {:src "/img/spacemacs-logo.svg"}]
+      "="
+      [:br]
+      "😋"]
+     [:li "Start using it at work"]]]])
 
 (defn links-slide []
   [:div.card-content
