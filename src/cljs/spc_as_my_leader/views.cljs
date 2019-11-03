@@ -125,7 +125,7 @@
    [:div.columns.is-mobile
     [:div.column.is-6
      [:figure.image>img
-      {:src "/img/clj-logo.svg"}]]
+      {:src "/img/clj.jpg"}]]
     [:div.column.is-5.is-offset-1
      [:dl
       [:li "Lisp"]
